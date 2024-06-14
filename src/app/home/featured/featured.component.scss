@@ -1,0 +1,39 @@
+/*========================*\
+  featured articles section
+\*========================*/
+.featured-articles {
+  padding: 1rem;
+
+  h1 {
+    font-size: 1rem;
+  }
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+
+  /* articles image */
+  img {
+    height: 30rem;
+    width: 100%;
+  }
+
+  /* article meta */
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  /* article summary */
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .article-summary {
+    font-size: 0.75rem;
+  }
+}
