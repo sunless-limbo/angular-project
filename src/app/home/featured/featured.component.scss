@@ -10,10 +10,6 @@
 }
 
 .articles-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
-
   /* articles image */
   img {
     height: 30rem;

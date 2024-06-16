@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IntroComponent } from './intro/intro.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeaturedComponent } from './featured/featured.component';
@@ -7,7 +8,7 @@ import { ArticleContent } from '../article-content';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [IntroComponent, NavbarComponent, FeaturedComponent],
+  imports: [CommonModule, IntroComponent, NavbarComponent, FeaturedComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
