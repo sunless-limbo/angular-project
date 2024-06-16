@@ -8,17 +8,20 @@
       <a href=""> <!-- routing -->
         <!-- article img -->
         <figure>
-          <img src="images/code.jpg" alt="article-image">
+          <!--
+             <img src="images/code.jpg" alt="article-image">
+          -->
+          <img [src]="articleContent.image" alt="this is {{articleContent.title}}">
         </figure>
         <!-- article description -->
         <article>
           <!-- article meta -->
           <div>
-            <p>Tech</p>
+            <p>{{articleContent.topic}}</p>
             <time datetime="2024-06-10">June 10, 2024</time>
           </div>
           <!-- article content -->
-          <h3>Programming Languages</h3>
+          <h3>{{ articleContent.title }}</h3>
           <p class="article-content">
             Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi
             Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit
