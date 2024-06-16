@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IntroComponent } from './intro/intro.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { ArticleContent } from '../article-content';
 

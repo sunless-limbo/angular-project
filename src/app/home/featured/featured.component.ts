@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { ArticleContent } from '../../article-content';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-featured',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './featured.component.html',
   styleUrl: './featured.component.scss',
 })

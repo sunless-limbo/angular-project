@@ -1,25 +1,18 @@
 <!-- featured articles section -->
 <section class="featured-articles">
-  <h1>Latest Articles</h1>
-  <!-- articles container -->
-  <div class="articles-container">
-    <!-- article -->
-    <!-- routing -->
-    <a href="">
-      <!-- article img -->
-      <figure>
-        <img [src]="articleContent.image" alt="this is {{ articleContent.title }}">
-      </figure>
-      <article>
-        <!-- article meta -->
-        <div>
-          <p>{{ articleContent.topic }}</p>
-          <time>{{ articleContent.time }}</time>
-        </div>
-        <!-- article content -->
-        <h3>{{ articleContent.title }}</h3>
-        <p> {{ articleContent.summary }} </p>
-      </article>
-    </a>
-  </div>
+  <!-- article img -->
+  <figure>
+    <img [src]="articleContent.image" alt="this is {{ articleContent.title }}">
+  </figure>
+  <article>
+    <!-- article meta -->
+    <div>
+      <p>{{ articleContent.topic }}</p>
+      <time>{{ articleContent.time }}</time>
+    </div>
+    <!-- article content -->
+    <h3>{{ articleContent.title }}</h3>
+    <p> {{ articleContent.summary }} </p>
+    <a [routerLink]="['/content', articleContent.id]">Read more...</a>
+  </article>
 </section>
