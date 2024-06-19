@@ -6,12 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WeatherApiService {
-  weather = ['rainy', 'sunny'];
+  private apiUrl =
+    'http://api.openweathermap.org/geo/1.0/direct?q=Nairobi&appid=463cc47a0f3d848c768c537253f9781a';
 
-  getWeather(): string[] {
-    return this.weather;
+  constructor(private http: HttpClient) {}
+
+  getWeather(): Observable<any> {
+    return this.http.get(`${this.apiUrl}`);
   }
 }
+
 /*
    test
   weather = ['rainy', 'sunny'];
@@ -44,4 +48,13 @@ http.get<Config>('/api/config').subscribe(config => {
   // process the configuration.
 });
 
+      4
+          this.httpClient.get('https://jsonplaceholder.typicode.com/posts')
+      .subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.data = data;
+        }, error: (err) => console.log(err)
+      });
+  }
 */
