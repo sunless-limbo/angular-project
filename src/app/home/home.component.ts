@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IntroComponent } from './intro/intro.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FeaturedComponent } from './featured/featured.component';
-import { ArticleContent } from '../article-content';
+import { ArticleContent } from '../intefaces/article-content';
 import { WeatherComponent } from '../weather/weather.component';
 
 @Component({
