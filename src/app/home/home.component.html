@@ -1,7 +1,7 @@
 <main>
   <app-navbar></app-navbar>
   <app-intro></app-intro>
-  <section>
+  <section class="featured-articles">
     <app-featured *ngFor="let articleContent of articleContentList" [articleContent] = "articleContent"></app-featured>
   </section>
 </main>

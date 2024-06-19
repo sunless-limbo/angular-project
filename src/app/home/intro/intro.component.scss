@@ -3,14 +3,19 @@
 \*======================*/
 .intro {
   padding: 1rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 3rem;
 
   .title {
     font-size: 2.5rem;
     margin: 0;
   }
 
-  p {
-    font-size: 0.75rem;
+  article {
+    p {
+      font-size: 0.75rem;
+    }
   }
 }
 
