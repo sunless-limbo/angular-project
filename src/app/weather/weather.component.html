@@ -1,12 +1,5 @@
   <!-- Open weather API -->
 <section id="weather-api">
   <h1>Weather API</h1>
-  <form>
-    <label for="location">Location:</label><br>
-    <br>
-    <input type="text" class="loca" name="location" placeholder="location"><br>
-    <br>
-    <input type="button" value="Gimme results!" onclick="apiWeather()"><br>
-  </form>
-  <p>Noice!!</p>
+  <p>{{weatherService.getWeather()}}</p>
 </section>

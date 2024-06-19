@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { WeatherApiService } from '../services/weather-api.service';
 
 @Component({
   selector: 'app-weather',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './weather.component.scss',
 })
 export class WeatherComponent {
-  apiUrl =
-    'http://api.openweathermap.org/geo/1.0/direct?q=Nairobi&appid=463cc47a0f3d848c768c537253f9781a';
+  weatherService = inject(WeatherApiService);
 }
+/*
+  @Input() weatherApiService!: WeatherApiService;
+  weather$!: Observable<any>;
+  constructor(private weatherApiService: WeatherApiService) {}
+*/
