@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { WeatherApiService } from '../services/weather-api.service';
+import {} from '@angular/common/http';
 
 @Component({
   selector: 'app-weather',
