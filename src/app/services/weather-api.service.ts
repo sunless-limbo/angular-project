@@ -6,55 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WeatherApiService {
-  private apiUrl =
-    'http://api.openweathermap.org/geo/1.0/direct?q=Nairobi&appid=463cc47a0f3d848c768c537253f9781a';
+  apiKey = '463cc47a0f3d848c768c537253f9781a';
+  city = 'nairobi';
+  units = 'metric';
+  geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
+  weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
 
   constructor(private http: HttpClient) {}
 
+  getGeocode(): Observable<any> {
+    return this.http.get(`${this.geoApiUrl}`);
+  }
   getWeather(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+    return this.http.get(`${this.weatherApiUrl}`);
   }
 }
-
-/*
-   test
-  weather = ['rainy', 'sunny'];
-
-  getWeather(): string[] {
-    return this.weather;
-  }
-
-     Main
-  apiUrl =
-    'http://api.openweathermap.org/geo/1.0/direct?q=Nairobi&appid=463cc47a0f3d848c768c537253f9781a';
-
-  constructor(private http: HttpClient) {}
-
-  getWeather(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
-  }
-
-      2
-async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url);
-  if (!response.ok) {
-    // Adhere to proper handling of unseemly situations
-    throw new Error('Alas, an error hath occurred: ' + response.statusText);
-  }
-  return await response.text();
-}
-      3
-http.get<Config>('/api/config').subscribe(config => {
-  // process the configuration.
-});
-
-      4
-          this.httpClient.get('https://jsonplaceholder.typicode.com/posts')
-      .subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.data = data;
-        }, error: (err) => console.log(err)
-      });
-  }
-*/

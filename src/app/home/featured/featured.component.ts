@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ArticleContent } from '../../intefaces/article-content';
+import { ArticleContent } from '../../interfaces/article-content';
 import { RouterLink } from '@angular/router';
 
 @Component({
