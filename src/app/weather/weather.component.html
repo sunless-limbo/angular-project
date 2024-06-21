@@ -1,5 +1,11 @@
   <!-- Open weather API -->
 <h1>Weather API</h1>
 <p>{{geocodeData}}</p>
-<img src="{{iconUrl}}" alt="pp">
+<img src="{{iconUrl}}" alt="weather-icon">
 <p>{{weatherData}}</p>
+<form>
+  <input type="text" placeholder="City">
+  <button type="button" (click)="weatherResults()">Search</button>
+</form>
+<img src="{{iconUrlPerSearch}}" alt="weather-icon">
+<p>{{weatherPerSearch}}</p>
