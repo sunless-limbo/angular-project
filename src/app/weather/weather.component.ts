@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherApiService } from '../services/weather-api.service';
 import { GeocodeData } from '../interfaces/geocode-data';
+import { WeatherData } from '../interfaces/weather-data';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.scss',
 })
 export class WeatherComponent implements OnInit {
   geocodeDataObject!: GeocodeData;
-  geocodeData: string = '';
+  weatherDataObject!: WeatherData;
   weatherData: string = '';
   iconCode: string = '';
   iconUrl: string = '';
+  foo = 'hi';
 
   constructor(private weatherApiService: WeatherApiService) {}
 
@@ -28,41 +31,18 @@ export class WeatherComponent implements OnInit {
         longitude: `${res[0].lon}`,
         state: `${res[0].state}`,
       };
-    }),
-      // geocoding data
-      this.weatherApiService.getGeocode().subscribe((res) => {
-        this.geocodeData = `
-        ${res[0].name}
-        ${res[0].country}
-        ${res[0].lat}
-        ${res[0].lon}
-        ${res[0].state}
-      `;
-      }),
-      // weather data
-      this.weatherApiService.getWeather().subscribe((res) => {
-        this.iconCode = `${res.weather[0].icon}`;
-        this.iconUrl = `http://openweathermap.org/img/wn/${this.iconCode}@2x.png`;
-        this.weatherData = `
-        ${res.weather[0].main}
-        ${res.clouds.all}%
-        ${res.weather[0].description}
-        ${res.main.temp} degrees
-        ${res.main.pressure} pressure degrees
-        ${res.main.humidity} humidity degrees
-      `;
-      });
+    });
+    // weather data object edition
+    this.weatherApiService.getWeather().subscribe((res) => {
+      this.weatherDataObject = {
+        icon: `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`,
+        weather: `${res.weather[0].main}`,
+        clouds: `${res.clouds.all}%`,
+        description: `${res.weather[0].description}`,
+        temperature: `${res.main.temp} degrees celcius`,
+        pressure: `${res.main.pressure} pressure degrees`,
+        humidity: `${res.main.humidity} humidity degrees`,
+      };
+    });
   }
 }
-
-/*
-    this.weatherApiService.getGeocode().subscribe((res) => {
-      geocodeDataList: GeocodeData = {
-        name: '${res[0].name}',
-        country: '${res[0].country}',
-        latitude: '${res[0].lat}',
-        longitude: '${res[0].lon}',
-        state: '${res[0].state}',
-      };
-    }),
-*/

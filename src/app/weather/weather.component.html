@@ -1,16 +1,23 @@
   <!-- Open weather API -->
 <h1>Weather API</h1>
-<p>{{geocodeData}}</p>
 <p>{{geocodeDataObject.name}}</p>
 <p>{{geocodeDataObject.country}}</p>
 <p>{{geocodeDataObject.latitude}}</p>
 <p>{{geocodeDataObject.longitude}}</p>
 <p>{{geocodeDataObject.state}}</p>
-<img src="{{iconUrl}}" alt="weather-icon">
-<p>{{weatherData}}</p>
-<form>
-  <input type="text" placeholder="City">
-</form>
+<img src="{{weatherDataObject.icon}}" alt="weather-icon">
+<p>{{weatherDataObject.weather}}</p>
+<p>{{weatherDataObject.clouds}}</p>
+<p>{{weatherDataObject.description}}</p>
+<p>{{weatherDataObject.temperature}}</p>
+<p>{{weatherDataObject.pressure}}</p>
+<p>{{weatherDataObject.humidity}}</p>
+<label for="bar">
+  <input type="text" placeholder="City" [(ngModel)]="foo">
+</label>
 <!--
-   <button type="button" (click)="weatherResults()">Search</button>
+  <form>
+    <input type="text" placeholder="City" [(ngModel)]="foo">
+     <button type="button" (click)="weatherResults()">Search</button>
+  </form>
 -->

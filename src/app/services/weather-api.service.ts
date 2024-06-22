@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WeatherApiService {
+  baseGeoApiUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
+  baseWeatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?';
   apiKey = '463cc47a0f3d848c768c537253f9781a';
-  city = 'nairobi';
+  city = 'sydney';
   units = 'metric';
-  geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
-  weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
+  geoApiUrl = `${this.baseGeoApiUrl}q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
+  weatherApiUrl = `${this.baseWeatherApiUrl}q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
 
   constructor(private http: HttpClient) {}
 
