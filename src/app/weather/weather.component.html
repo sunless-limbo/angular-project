@@ -1,26 +1,46 @@
 <!-- Open weather API -->
 <h1>Weather API</h1>
+<!-- current time -->
+<p>Current time: {{currentTime | date:'shortTime'}}, {{currentTime | date}}</p>
+<!-- search bar-->
+<form [formGroup]="searchBar" (submit)="searchResult()">
+  <h2>Search Bar</h2>
+  <label for="bar">Search Bar</label> <br>
+  <input type="text" placeholder="Enter City" formControlName="city" autofocus>
+  <button type="submit">search NOW!!</button>
+</form>
 <!-- results -->
-<p>{{geocodeDataObject.name}}</p>
-<p>{{geocodeDataObject.country}}</p>
-<p>{{geocodeDataObject.latitude}}</p>
-<p>{{geocodeDataObject.longitude}}</p>
-<p>{{geocodeDataObject.state}}</p>
-<img src="{{weatherDataObject.icon}}" alt="weather-icon">
-<p>{{weatherDataObject.weather}}</p>
-<p>{{weatherDataObject.clouds}}</p>
-<p>{{weatherDataObject.description}}</p>
-<p>{{weatherDataObject.temperature}}</p>
-<p>{{weatherDataObject.pressure}}</p>
-<p>{{weatherDataObject.humidity}}</p>
+<p>{{geocodeDataJson.name}}</p>
+<p>{{geocodeDataJson.country}}</p>
+<p>{{geocodeDataJson.latitude}} degrees</p>
+<p>{{geocodeDataJson.longitude}} degrees</p>
+<p>{{geocodeDataJson.state}}</p>
+<img src="{{weatherDataJson.icon}}" alt="weather-icon">
+<p>{{weatherDataJson.weather}}</p>
+<p>{{weatherDataJson.clouds}}%</p>
+<p>{{weatherDataJson.description}}</p>
+<span>{{weatherDataJson.temperature}} </span>
+<select>
+  <option>Celcius</option>
+  <option>Faranheit</option>
+</select>
+<br>
+<span>{{weatherDataJson.pressure}} </span>
+<select>
+  <option>pressure Celcius</option>
+  <option>pressure Faranheit</option>
+</select>
+<br>
+<span>{{weatherDataJson.humidity}} </span>
+<select>
+  <option>humidity Celcius</option>
+  <option>humidity Faranheit</option>
+</select>
+<br>
 <!--
-
-<label for="bar">
-  <input type="text" placeholder="Enter City" [(ngModel)]="foo" autofocus>
-</label>
-
-  <form>
-    <input type="text" placeholder="City" [(ngModel)]="foo">
-     <button type="button" (click)="weatherResults()">Search</button>
-  </form>
+<form [formGroup]="searchBar" (submit)="searchResult()">
+  <label for="bar">Search Bar</label> <br>
+  <input type="text" placeholder="Enter City" formControlName="city" autofocus #filter>
+  <button type="submit" (click)="filterResults(city.values)">search NOW!!</button>
+</form>
 -->

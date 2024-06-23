@@ -1,7 +1,5 @@
-import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +8,29 @@ export class WeatherApiService {
   baseGeoApiUrl = environment.baseGeoApiUrl;
   baseWeatherApiUrl = environment.baseWeatherApiUrl;
   apiKey = environment.apiKey;
-  city = environment.city;
-  units = environment.units;
-  geoApiUrl = `${this.baseGeoApiUrl}q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
-  weatherApiUrl = `${this.baseWeatherApiUrl}q=${this.city}&units=${this.units}&appid=${this.apiKey}`;
+  units = 'metric';
 
-  private http = inject(HttpClient);
-
-  getGeocode(): Observable<any> {
-    return this.http.get(`${this.geoApiUrl}`);
+  async getGeocode(city: string) {
+    try {
+      const res = await fetch(
+        `${this.baseGeoApiUrl}q=${city}&units=${this.units}&appid=${this.apiKey}`,
+      );
+      const data = await res.json();
+      return data ?? [];
+    } catch (error) {
+      console.error('Error: ', error);
+    }
   }
-  getWeather(): Observable<any> {
-    return this.http.get(`${this.weatherApiUrl}`);
+
+  async getWeather(city: any) {
+    try {
+      const res = await fetch(
+        `${this.baseWeatherApiUrl}q=${city}&units=${this.units}&appid=${this.apiKey}`,
+      );
+      const data = await res.json();
+      return data ?? [];
+    } catch (error) {
+      console.error('Error: ', error);
+    }
   }
 }

@@ -4,18 +4,11 @@ import { IntroComponent } from './intro/intro.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { ArticleContent } from '../interfaces/article-content';
-import { WeatherComponent } from '../weather/weather.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    IntroComponent,
-    NavbarComponent,
-    FeaturedComponent,
-    WeatherComponent,
-  ],
+  imports: [CommonModule, IntroComponent, NavbarComponent, FeaturedComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
