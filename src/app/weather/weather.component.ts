@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { WeatherApiService } from '../services/weather-api.service';
 import { GeocodeData } from '../interfaces/geocode-data';
 import { WeatherData } from '../interfaces/weather-data';
@@ -16,9 +16,8 @@ export class WeatherComponent {
   weatherData: string = '';
   iconCode: string = '';
   iconUrl: string = '';
-  foo = 'hi';
 
-  constructor(private weatherApiService: WeatherApiService) {}
+  private weatherApiService = inject(WeatherApiService);
 
   ngOnInit(): void {
     // geocoding data object edition
