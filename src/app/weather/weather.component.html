@@ -3,44 +3,39 @@
 <!-- current time -->
 <p>Current time: {{currentTime | date:'shortTime'}}, {{currentTime | date}}</p>
 <!-- search bar-->
+<h2>Search Bar</h2>
 <form [formGroup]="searchBar" (submit)="searchResult()">
-  <h2>Search Bar</h2>
-  <label for="bar">Search Bar</label> <br>
   <input type="text" placeholder="Enter City" formControlName="city" autofocus>
   <button type="submit">search NOW!!</button>
 </form>
 <!-- results -->
-<p>{{geocodeDataJson.name}}</p>
-<p>{{geocodeDataJson.country}}</p>
-<p>{{geocodeDataJson.latitude}} degrees</p>
-<p>{{geocodeDataJson.longitude}} degrees</p>
-<p>{{geocodeDataJson.state}}</p>
+<h2>Results</h2>
+<p>City Name: {{geocodeDataJson.name}}</p>
+<p>Country Name: {{geocodeDataJson.country}}</p>
+<p>Latitude: {{geocodeDataJson.latitude}} degrees</p>
+<p>Longitude: {{geocodeDataJson.longitude}} degrees</p>
+<p>State: {{geocodeDataJson.state}}</p>
 <img src="{{weatherDataJson.icon}}" alt="weather-icon">
-<p>{{weatherDataJson.weather}}</p>
-<p>{{weatherDataJson.clouds}}%</p>
-<p>{{weatherDataJson.description}}</p>
-<span>{{weatherDataJson.temperature}} </span>
-<select>
-  <option>Celcius</option>
-  <option>Faranheit</option>
+<p>Weather: {{weatherDataJson.weather}}</p>
+<p>Clouds: {{weatherDataJson.clouds}}%</p>
+<p>Description: {{weatherDataJson.description}}</p>
+<p>Pressure: {{weatherDataJson.pressure}} pressure degrees</p>
+<p>Humidity: {{weatherDataJson.humidity}} humidity degrees</p>
+<p>Temperature: {{weatherDataJson.temperature}} Kelvin </p>
+<span>Temperature: {{tempDataJson.temperature}} </span>
+<select #temp (change)="onSel(temp.value)">
+  <option default>Units</option>
+  <option>metric</option>
+  <option>imperial</option>
 </select>
-<br>
-<span>{{weatherDataJson.pressure}} </span>
-<select>
-  <option>pressure Celcius</option>
-  <option>pressure Faranheit</option>
-</select>
-<br>
-<span>{{weatherDataJson.humidity}} </span>
-<select>
-  <option>humidity Celcius</option>
-  <option>humidity Faranheit</option>
-</select>
-<br>
 <!--
-<form [formGroup]="searchBar" (submit)="searchResult()">
-  <label for="bar">Search Bar</label> <br>
-  <input type="text" placeholder="Enter City" formControlName="city" autofocus #filter>
-  <button type="submit" (click)="filterResults(city.values)">search NOW!!</button>
-</form>
+
+
+<select>
+  <option *ngFor="let units of units">{{units}}</option>
+</select>
+<select [(ngModel)]="units">
+  <option value="metric" default>metric</option>
+  <option value="imperial" >imperial</option>
+</select>
 -->

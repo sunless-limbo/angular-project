@@ -1,7 +1,7 @@
 export interface GeocodeData {
   name: string;
   country: string;
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
   state: string;
 }

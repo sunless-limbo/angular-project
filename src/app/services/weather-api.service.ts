@@ -5,15 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WeatherApiService {
-  baseGeoApiUrl = environment.baseGeoApiUrl;
-  baseWeatherApiUrl = environment.baseWeatherApiUrl;
-  apiKey = environment.apiKey;
-  units = 'metric';
-
-  async getGeocode(city: string) {
+  // weather api
+  async getWeather(city: string) {
     try {
       const res = await fetch(
-        `${this.baseGeoApiUrl}q=${city}&units=${this.units}&appid=${this.apiKey}`,
+        `${environment.baseWeatherApiUrl}q=${city}&appid=${environment.apiKey}`,
       );
       const data = await res.json();
       return data ?? [];
@@ -21,11 +17,23 @@ export class WeatherApiService {
       console.error('Error: ', error);
     }
   }
-
-  async getWeather(city: any) {
+  // units of the weather api
+  async getWeatherUnits(city: string, units: string) {
     try {
       const res = await fetch(
-        `${this.baseWeatherApiUrl}q=${city}&units=${this.units}&appid=${this.apiKey}`,
+        `${environment.baseWeatherApiUrl}q=${city}&units=${units}&appid=${environment.apiKey}`,
+      );
+      const data = await res.json();
+      return data ?? [];
+    } catch (error) {
+      console.error('Error: ', error);
+    }
+  }
+  // geocoding api
+  async getGeocode(city: string) {
+    try {
+      const res = await fetch(
+        `${environment.baseGeoApiUrl}q=${city}&units=${environment.units}&appid=${environment.apiKey}`,
       );
       const data = await res.json();
       return data ?? [];
@@ -34,3 +42,6 @@ export class WeatherApiService {
     }
   }
 }
+/*
+
+*/
