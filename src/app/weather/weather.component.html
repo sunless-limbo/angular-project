@@ -1,5 +1,6 @@
-  <!-- Open weather API -->
+<!-- Open weather API -->
 <h1>Weather API</h1>
+<!-- results -->
 <p>{{geocodeDataObject.name}}</p>
 <p>{{geocodeDataObject.country}}</p>
 <p>{{geocodeDataObject.latitude}}</p>
@@ -12,10 +13,12 @@
 <p>{{weatherDataObject.temperature}}</p>
 <p>{{weatherDataObject.pressure}}</p>
 <p>{{weatherDataObject.humidity}}</p>
-<label for="bar">
-  <input type="text" placeholder="City" [(ngModel)]="foo">
-</label>
 <!--
+
+<label for="bar">
+  <input type="text" placeholder="Enter City" [(ngModel)]="foo" autofocus>
+</label>
+
   <form>
     <input type="text" placeholder="City" [(ngModel)]="foo">
      <button type="button" (click)="weatherResults()">Search</button>

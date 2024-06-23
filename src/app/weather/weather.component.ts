@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WeatherApiService } from '../services/weather-api.service';
 import { GeocodeData } from '../interfaces/geocode-data';
 import { WeatherData } from '../interfaces/weather-data';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [FormsModule],
+  imports: [],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.scss',
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent {
   geocodeDataObject!: GeocodeData;
   weatherDataObject!: WeatherData;
   weatherData: string = '';
