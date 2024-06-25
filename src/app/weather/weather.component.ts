@@ -31,6 +31,9 @@ export class WeatherComponent {
   });
   tempUnit = '';
 
+  constructor(private weatherApiService: WeatherApiService) {}
+
+  // toggle units
   onSel(value: string): void {
     this.tempUnit = value;
     this.weatherApiService
@@ -45,8 +48,6 @@ export class WeatherComponent {
         };
       });
   }
-
-  constructor(private weatherApiService: WeatherApiService) {}
 
   searchResult() {
     // geolocation data
@@ -99,18 +100,16 @@ export class WeatherComponent {
                 humidity: res.list[0].main.humidity,
                 wind: res.list[0].wind.speed,
               },
-            ];
-            this.forecastDataJson.push(
               {
                 date: `${res.list[1].dt_txt}`,
                 icon: `http://openweathermap.org/img/wn/${res.list[1].weather[0].icon}@2x.png`,
                 weather: `${res.list[1].weather[0].main}`,
                 description: `${res.list[1].weather[0].main}`,
                 clouds: res.list[1].clouds.all,
+                temperature: res.list[1].main.temp,
                 pressure: res.list[1].main.pressure,
                 humidity: res.list[1].main.humidity,
                 wind: res.list[1].wind.speed,
-                temperature: res.list[1].main.temp,
               },
               {
                 date: `${res.list[2].dt_txt}`,
@@ -145,22 +144,11 @@ export class WeatherComponent {
                 wind: res.list[4].wind.speed,
                 temperature: res.list[4].main.temp,
               },
-            );
+            ];
           });
       });
   }
 }
 /*
 
-              {
-                date: `${res.list[1].dt_txt}`,
-                icon: `http://openweathermap.org/img/wn/${res.list[1].weather[1].icon}@2x.png`,
-                weather: `${res.list[1].weather[1].main}`,
-                description: `${res.list[1].weather[1].main}`,
-                clouds: res.list[1].clouds.all,
-                temperature: res.list[1].main.temp,
-                pressure: res.list[1].main.pressure,
-                humidity: res.list[1].main.humidity,
-                wind: res.list[1].wind.speed,
-              },
  */
