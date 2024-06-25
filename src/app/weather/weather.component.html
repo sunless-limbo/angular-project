@@ -6,7 +6,7 @@
 <h2>Search Bar</h2>
 <form [formGroup]="searchBar" (submit)="searchResult()">
   <input type="text" placeholder="Enter City" formControlName="city" autofocus>
-  <button type="submit">search NOW!!</button>
+  <button type="submit">search</button>
 </form>
 <!-- results -->
 <h2>Results</h2>
@@ -17,25 +17,85 @@
 <p>State: {{geocodeDataJson.state}}</p>
 <img src="{{weatherDataJson.icon}}" alt="weather-icon">
 <p>Weather: {{weatherDataJson.weather}}</p>
-<p>Clouds: {{weatherDataJson.clouds}}%</p>
 <p>Description: {{weatherDataJson.description}}</p>
-<p>Pressure: {{weatherDataJson.pressure}} pressure degrees</p>
-<p>Humidity: {{weatherDataJson.humidity}} humidity degrees</p>
+<p>Clouds: {{weatherDataJson.clouds}}%</p>
+<p>Pressure: {{weatherDataJson.pressure}} hPa</p>
+<p>Humidity: {{weatherDataJson.humidity}}%</p>
+<p>Wind: {{weatherDataJson.wind}} meters/second</p>
 <p>Temperature: {{weatherDataJson.temperature}} Kelvin </p>
+<!--
 <span>Temperature: {{tempDataJson.temperature}} </span>
+  temperature unit change
+  standard - Kelvin
+  metric - Celsius
+  imperial - Fahrenheit
 <select #temp (change)="onSel(temp.value)">
-  <option default>Units</option>
+  <option default>standard</option>
   <option>metric</option>
   <option>imperial</option>
 </select>
+-->
+<!-- forecast -->
+<h2>Today Forecast</h2>
+<!-- 6 -->
+<h3>6am</h3>
+<p>{{forecastDataJson[0].date}}</p>
+<img src="{{forecastDataJson[0].icon}}" alt="weather-icon">
+<p>Weather: {{forecastDataJson[0].weather}}</p>
+<p>Description: {{forecastDataJson[0].description}}</p>
+<p>clouds: {{forecastDataJson[0].clouds}}%</p>
+<p>temperature: {{forecastDataJson[0].temperature}}</p>
+<p>pressure: {{forecastDataJson[0].pressure}} hPa</p>
+<p>humidity: {{forecastDataJson[0].humidity}}%</p>
+<p>wind: {{forecastDataJson[0].wind}} meters/second</p>
+<p>wind: {{forecastDataJson[0].temperature}} Kelvin</p>
+<!-- 9 -->
+<h3>9am</h3>
+<p>{{forecastDataJson[1].date}}</p>
+<img src="{{forecastDataJson[1].icon}}" alt="weather-icon">
+<p>Weather: {{forecastDataJson[1].weather}}</p>
+<p>Description: {{forecastDataJson[1].description}}</p>
+<p>clouds: {{forecastDataJson[1].clouds}}%</p>
+<p>temperature: {{forecastDataJson[1].temperature}}</p>
+<p>pressure: {{forecastDataJson[1].pressure}} hPa</p>
+<p>humidity: {{forecastDataJson[1].humidity}}%</p>
+<p>wind: {{forecastDataJson[1].wind}} meters/second</p>
+<p>wind: {{forecastDataJson[1].temperature}} Kelvin</p>
+<!-- 12 -->
+<h3>12 noon</h3>
+<p>{{forecastDataJson[2].date}}</p>
+<img src="{{forecastDataJson[2].icon}}" alt="weather-icon">
+<p>Weather: {{forecastDataJson[2].weather}}</p>
+<p>Description: {{forecastDataJson[2].description}}</p>
+<p>clouds: {{forecastDataJson[2].clouds}}%</p>
+<p>temperature: {{forecastDataJson[2].temperature}}</p>
+<p>pressure: {{forecastDataJson[2].pressure}} hPa</p>
+<p>humidity: {{forecastDataJson[2].humidity}}%</p>
+<p>wind: {{forecastDataJson[2].wind}} meters/second</p>
+<p>wind: {{forecastDataJson[2].temperature}} Kelvin</p>
+<!-- 3 -->
+<h3>3pm</h3>
+<p>{{forecastDataJson[3].date}}</p>
+<img src="{{forecastDataJson[3].icon}}" alt="weather-icon">
+<p>Weather: {{forecastDataJson[3].weather}}</p>
+<p>Description: {{forecastDataJson[3].description}}</p>
+<p>clouds: {{forecastDataJson[3].clouds}}%</p>
+<p>temperature: {{forecastDataJson[3].temperature}}</p>
+<p>pressure: {{forecastDataJson[3].pressure}} hPa</p>
+<p>humidity: {{forecastDataJson[3].humidity}}%</p>
+<p>wind: {{forecastDataJson[3].wind}} meters/second</p>
+<p>wind: {{forecastDataJson[3].temperature}} Kelvin</p>
+<!-- 6 -->
+<h3>6pm</h3>
+<p>{{forecastDataJson[4].date}}</p>
+<img src="{{forecastDataJson[4].icon}}" alt="weather-icon">
+<p>Weather: {{forecastDataJson[4].weather}}</p>
+<p>Description: {{forecastDataJson[4].description}}</p>
+<p>clouds: {{forecastDataJson[4].clouds}}%</p>
+<p>temperature: {{forecastDataJson[4].temperature}}</p>
+<p>pressure: {{forecastDataJson[4].pressure}} hPa</p>
+<p>humidity: {{forecastDataJson[4].humidity}}%</p>
+<p>wind: {{forecastDataJson[4].wind}} meters/second</p>
+<p>temperature: {{forecastDataJson[4].temperature}} Kelvin</p>
 <!--
-
-
-<select>
-  <option *ngFor="let units of units">{{units}}</option>
-</select>
-<select [(ngModel)]="units">
-  <option value="metric" default>metric</option>
-  <option value="imperial" >imperial</option>
-</select>
 -->

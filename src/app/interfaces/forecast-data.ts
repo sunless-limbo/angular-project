@@ -1,4 +1,5 @@
-export interface WeatherData {
+export interface ForecastData {
+  date: string;
   icon: string;
   weather: string;
   description: string;
