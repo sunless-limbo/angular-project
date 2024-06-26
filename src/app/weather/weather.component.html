@@ -23,18 +23,6 @@
 <p>Humidity: {{weatherDataJson.humidity}}%</p>
 <p>Wind: {{weatherDataJson.wind}} meters/second</p>
 <p>Temperature: {{weatherDataJson.temperature}} Kelvin </p>
-<!--
-<span>Temperature: {{tempDataJson.temperature}} </span>
-  temperature unit change
-  standard - Kelvin
-  metric - Celsius
-  imperial - Fahrenheit
-<select #temp (change)="onSel(temp.value)">
-  <option default>standard</option>
-  <option>metric</option>
-  <option>imperial</option>
-</select>
--->
 <!-- forecast -->
 <h2>Today Forecast</h2>
 <section class="forecast">
@@ -110,4 +98,14 @@
   </article>
 </section>
 <!--
+<span>Temperature: {{tempDataJson.temperature}} </span>
+  temperature unit change
+  standard - Kelvin
+  metric - Celsius
+  imperial - Fahrenheit
+<select #temp (change)="onSel(temp.value)">
+  <option default>standard</option>
+  <option>metric</option>
+  <option>imperial</option>
+</select>
 -->
